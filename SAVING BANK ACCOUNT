@@ -1,0 +1,42 @@
+Private Sub cmp1_Click()
+If cmp1.Text = "Deposit" Then
+txtpre.Text = Val(txtcur.Text)
+txtdepo.Text = Val(txtamt.Text)
+txtwith.Visible = False
+lblwith.Visible = False
+txtdepo.Visible = True
+lbldepo.Visible = True
+txtcur.Text = Val(txtpre.Text) + Val(txtdepo.Text)
+ElseIf
+cmp1.Text = "Withdraw" Then
+txtpre.Text = Val(txtcur.Text)
+If txtpre.Text = 0 Then
+MsgBox "no balance"
+txtcur.Text = 0
+txtamt.Text = ""
+txtamt.SetFocus
+lblwith.Visible = False
+txtwith.Visible = False
+Else
+txtwith.Text = Val(txtamt.Text)
+If Val(txtwith.Text) > Val(txtcur.Text) Then
+MsgBox "Insufficient Balance"
+txtwith.Visible = False
+txtcur.Visible = False
+lblcur.Visible = False
+txtamt.Text = ""
+txtamt.SetFocus
+lblwith.Visible = False
+txtwith.Visible = False End If
+txtdepo.Visible = False
+lbldepo.Visible = False
+txtcur.Text = Val(txtpre.Text) - Val(txtwith.Text)
+End If
+End If End Sub
+Private Sub Form_Load()
+cmp1.AddItem "Withdraw"
+cmp1.AddItem "Deposit"
+txtpre.Text = 20000
+txtcur.Text = txtpre.Text
+txtdate.Text = Now
+End Sub
