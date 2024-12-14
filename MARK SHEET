@@ -1,0 +1,50 @@
+Private Sub cmdclc_Click()
+Dim s1, s2, s3, s4, s5 As Integer
+Dim tot, per As Double
+Dim grade As String
+Dim s As String
+' Get subject marks
+s1 = Val(txtsub1.Text)
+s2 = Val(txtsub2.Text)
+s3 = Val(txtsub3.Text)
+s4 = Val(txtsub4.Text)
+s5 = Val(txtsub5.Text)
+' Calculate total and percentage
+tot = s1 + s2 + s3 + s4 + s5
+per = tot / 5
+' Display total and percentage
+txttot.Text = tot
+txtper.Text = per
+' Check pass criteria for each subject and calculate grade
+If s1 >= 35 And s2 >= 35 And s3 >= 35 And s4 >= 35 And s5 >= 35 Then
+Select Case per
+Case Is > 90
+grade = "E"
+Case Is > 60
+grade = "A"
+Case Is > 50
+grade = "B"
+Case Is > 35
+grade = "C"
+End Select
+txtgra.Text = grade
+' Display remarks based on grade
+s = txtgra.Text
+Select Case s
+Case "E"
+lblrem.Caption = "Excellent"
+Case "A"
+lblrem.Caption = "Very Good"
+Case "B"
+lblrem.Caption = "Good"
+Case "C"
+lblrem.Caption = "Average"
+End Select
+Else
+txtgra.Text = "F"
+lblrem.Caption = "Fail"
+End If
+End Sub
+Private Sub Form_Load()
+txtgra.Enabled = False
+End Sub
