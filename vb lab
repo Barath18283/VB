@@ -1,0 +1,27 @@
+Private Sub cmdclc_Click()
+If txtbp.Text = "" Then
+MsgBox "You should Enter Basic Pay"
+txtbp.SetFocus
+Exit Sub
+End If
+Iftxtlic = "" Then
+txtlic = 0
+End If
+Iftxtinc = "" Then
+txtinc = 0
+End If
+Iftxtloa = "" Then
+txtloa = 0
+End If
+Iftxtoth = "" Then
+txtoth = 0
+End If
+txthra = txtbp * 15 / 100
+txtda = txtbp * 40 / 100
+txtcon = txtbp * 10 / 100
+txtgs = Val(txtbp) + Val(txthra) + Val(txtda) + Val(txtcon)
+txtns = Val(txtgs) - Val(txtlic) - Val(txtinc) - Val(txtloa) - Val(txtoth)
+End Sub
+Private Sub cmdend_Click()
+End
+End Sub
