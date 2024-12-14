@@ -1,0 +1,31 @@
+Private Sub cmdclc_Click()
+txttotamt = Val(txtiprice.Text) * Val(txtiqty.Text)
+Select Case (Combo1.ListIndex)
+Case 0
+sug_stock = sug_stock - Val(txtiqty.Text)
+txtcurstock.Text = sug_stock
+Case 1
+rice_stock = rice_stock - Val(txtiqty.Text)
+txtcurstock.Text = rice_stock
+End Select
+End Sub
+Private Sub Combo1_Click()
+txtiprice.Text = ""
+txtiqty.Text = ""
+txttotamt.Text = ""
+txtcurstock.Text = ""
+Select Case (Combo1.ListIndex)
+Case 0
+txtiname.Text = "Sugar"
+txtstock.Text = sug_stock
+Case 1
+txtiname.Text = "Rice"
+txtstock.Text = rice_stock
+End Select
+End Sub
+Private Sub Form_Load()
+sug_stock = 40
+rice_stock = 20
+Combo1.AddItem "1"
+Combo1.AddItem "2"
+End Sub
